@@ -208,6 +208,13 @@ header {
 	transition: all .5s ease-in-out;
 }
 
+.slider-fon1 {
+	background-image: url("../img/slider-fon.jpg");
+}
+.slider-fon2 {
+	background-image: url("../img/slider-fon2.jpg");
+}
+
 .slider__item-content {
 	text-align: center;
 	padding-top: 110px;

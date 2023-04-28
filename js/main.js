@@ -40,15 +40,26 @@ $(function(){	/* чтобы сначала подгрузился весь html,
 	})
 
 	function setImage(image) {
-		$('.slider').attr({style: `background-image: url(${image})`})
+		let classList = document.querySelector('.slider').classList
+		if (classList.length > 1)
+			classList.remove(classList[classList.length-1])
+		classList.add(`slider-fon${image}`)
 	}
+	$('.slick-list').mouseup(() => {
+		if($('.slick-active').attr('data-slick-index') == 0)
+			setImage(1)
+		else if ($('.slick-active').attr('data-slick-index') == 1)
+			setImage(2)
+		else if ($('.slick-active').attr('data-slick-index') == 2)
+			setImage(1)
+	})
 	$('.slick-btn').click(() => {
 		if($('.slick-active').attr('data-slick-index') == 0)
-			setImage("../img/slider-fon.jpg")
+			setImage(1)
 		else if ($('.slick-active').attr('data-slick-index') == 1)
-			setImage("../img/slider-fon2.jpg")
+			setImage(2)
 		else if ($('.slick-active').attr('data-slick-index') == 2)
-			setImage("../img/slider-fon.jpg")
+			setImage(1)
 	})
 
 	$('select').styler()
