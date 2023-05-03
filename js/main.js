@@ -45,22 +45,17 @@ $(function(){	/* чтобы сначала подгрузился весь html,
 			classList.remove(classList[classList.length-1])
 		classList.add(`slider-fon${image}`)
 	}
-	$('.slick-list').mouseup(() => {
+	function moveSlide () {
 		if($('.slick-active').attr('data-slick-index') == 0)
 			setImage(1)
 		else if ($('.slick-active').attr('data-slick-index') == 1)
 			setImage(2)
 		else if ($('.slick-active').attr('data-slick-index') == 2)
 			setImage(1)
-	})
-	$('.slick-btn').click(() => {
-		if($('.slick-active').attr('data-slick-index') == 0)
-			setImage(1)
-		else if ($('.slick-active').attr('data-slick-index') == 1)
-			setImage(2)
-		else if ($('.slick-active').attr('data-slick-index') == 2)
-			setImage(1)
-	})
+	}
+	$('.slick-list').mouseup(moveSlide)
+	$('.slick-btn').click(moveSlide)
+	$('.slick-list').on("touchend", moveSlide)
 
 	$('select').styler()
 
